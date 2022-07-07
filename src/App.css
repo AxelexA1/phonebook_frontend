@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;800&&family=Space+Mono&display=swap');
+
+@media screen and (min-width: 800px) {
+
+  body {
+    font-family: sans-serif;
+    
+  }
+
+
+  /*Pääcontainer*/
+  .container {
+    display: grid;
+    width: 100%;
+    min-height: 200vh;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+
+  }
+
+  /*Sovelluksen osat sisältävä container*/
+  .app_container {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    display: grid;
+    width: 800px;
+    min-height: 350px;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 50% 50%;
+
+  }
+
+  /*Sivun otsikko*/
+  .page_header {
+    position: relative;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    max-width: 100%;
+    max-height: 50%;  
+  }
+  .page_header h2{
+    position: absolute;
+    left: 50%;
+    padding-left: 10px;
+    color: #212529;
+    animation: bounce 2s ease infinite;
+  }
+
+  @keyframes bounce {
+    50% {
+      transform: translateY(40%);
+      opacity: 0.7;
+      
+    }
+  }
+
+  /*Yhteystiedon lisäämiseen liittyvän toiminnallisuuden sisältävä container*/
+  .form_container{
+    z-index: 0;
+    border-radius: 15px;
+    background-color: rgba(248, 249, 250, 1);
+    box-shadow: rgba(45, 35, 66, 0.4) 2px 2px 2px ,rgba(45, 35, 66, 0.3) 0 2px  2px ;
+    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-width: 400px;
+    min-width: 220px;
+    min-height: 300px;
+    max-height: 300px;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    
+  }
+
+  .form_input{
+    
+    width: 190.6px;
+    font-family: 'Poppins';
+    font-weight:300;
+    font-size: 15px;
+    padding: 5px 5px 0px 0px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(233, 236, 239, 1);
+    background: transparent;
+  }
+
+
+  .form_input ~ .focus-border{
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0px; height: 2px; 
+    background-color: rgba(0, 0, 0, 1);
+    transition: 0.4s;
+  }
+  .form_input:focus ~ .focus-border{
+    width: 195.6px; transition: 0.4s;
+  }
+
+  ::placeholder{
+    color: rgba(73, 80, 87, 1);
+  }
+
+  .form_button {
+    margin-top: 20px;
+    align-items: center;
+    appearance: none;
+    background-color: rgba(248, 249, 250, 1);
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0px 0px 0px,rgba(45, 35, 66, 0.3) 0 0px 0px;
+    color: #212529;
+    cursor: pointer;
+    height: 30px;
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .form_button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 2px 2px 2px,rgba(45, 35, 66, 0.3) 0 2px  2px;
+    transition: 0.1s;
+  }
+
+  /*Yhteystietojen näyttämiseen liittyvän toiminnallisuuden sisältävä container*/
+  .display_container{
+    position: absolute;
+    background-color: white;
+    z-index: -1;
+    width: 330px;
+    padding: 10px;
+    min-height: 300px;
+    max-height: 300px;
+    left: 25%;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  
+  .display_container h2{
+    margin-top: 5px;
+  }
+
+  .filter_input{
+    width: 190.6px;
+    font-family: 'Poppins';
+    font-weight:300;
+    font-size: 18px;
+    padding: 5px 5px 0px 0px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(233, 236, 239, 1);
+    background: transparent;
+  }
+
+  .filter_input ~ .focus-border{
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0px; height: 2px; 
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.4s;
+  }
+  .filter_input:focus ~ .focus-border{
+    width: 195.6px; transition: 0.4s;
+  }
+
+  .contact_row{
+    position: relative;
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+    margin: 0 0 10px 0;
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 15px;
+    animation: show_row;
+    animation-duration: 0.4s;
+  }
+
+  @keyframes show_row {
+      0% {
+        left: 20%;
+        opacity: 0;
+      }
+      50% {
+        left: -5%;
+        opacity: 0.5;
+      }
+      100% {
+        left: 0;
+        opacity: 1;
+      }
+  }
+
+  .contact_row p{
+    margin:0;
+    justify-content: center;
+    
+    align-items: center;
+  }
+
+  .contact_name{
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+
+  .contact_number{
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+
+  .name_input, .number_input, .contacttitle{
+    position: relative;
+  }
+
+  .contacttitle h2{
+    color: #212529;
+  }
+
+  .contact_row button {
+    align-items: center;
+    appearance: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0px 0px 0px,rgba(45, 35, 66, 0.3) 0 0px 0px;
+    color: #212529;
+    cursor: pointer;
+    height: 25px;
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    
+    font-size: 18px;
+    grid-column-start: 3;
+    grid-column-end: 3;
+
+  }
+
+  .contact_row button:hover {
+    background-color: #FCFCFD;
+    box-shadow: rgba(45, 35, 66, 0.4) 2px 2px 2px,rgba(45, 35, 66, 0.3) 0 2px  2px;
+    transition: 0.1s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.4s;
+    animation-duration: 0.4s;
+    animation-name: row_button_animation;
+
+  }
+
+  @keyframes row_button_animation {
+    from {
+      color: #36395A;
+    }
+    to {
+      color: rgba(255, 0, 0, 0.8);
+    }
+  }
+
+  .notification {
+    color: rgba(33, 37, 41, 1);
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .errornotification {
+    color: rgb(255, 0, 0);
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 20px;
+  }
+
+  .filter_div {
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .contact_row button ~ .contact-border{
+    position: absolute;
+    bottom: 45%; left: 0;
+    width: 0px; height: 20%; 
+    background-color: rgba(255, 0, 0, 0.8);
+    transition: 0.4s;
+  }
+
+  .contact_row button:hover ~ .contact-border{
+    width: 80%;
+    transition: 0.5s;
+
+  }
+
+}
+
+@media screen and (max-width: 799px) {
+  body {
+    font-family: sans-serif;
+  }
+
+  /*Pääcontainer*/
+  .container {
+    display: grid;
+    width: 100%;
+    height: 150vh;
+    grid-template-columns: 100%;
+
+  }
+
+  /*Sovelluksen osat sisältävä container*/
+  .app_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 350px;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 100%;
+  
+  }
+  
+  /*Sivun otsikko*/
+  .page_header {
+    z-index: -1;
+    opacity:0;
+    max-width: 0;
+    max-height: 0;
+    grid-column-start: 4;
+    grid-row-start: 4;
+    
+  }
+  .page_header h2{
+    max-width: 0;
+    max-height: 0;
+  }
+  
+  /*Yhteystiedon lisäämiseen liittyvän toiminnallisuuden sisältävä container*/
+  .form_container{
+    z-index: 0;
+    background-color: white;
+    padding: 10px;
+    width: 90%;
+    
+  }
+  
+  .form_container:hover {
+    border-radius: 15px;
+    background-color: rgba(248, 249, 250, 1);
+    box-shadow: rgba(45, 35, 66, 0.4) 2px 2px 2px ,rgba(45, 35, 66, 0.3) 0 2px  2px ;
+    transition: 0.2s ;
+  }
+
+  .form_container:hover .form_button{
+    background-color: rgba(248, 249, 250, 1);
+    transition: 0.2s ;
+  }
+
+  .form_title {
+    font-family: 'Poppins';
+    color: #212529;
+    margin: 0 0 10px 0;
+  }
+
+  .form_input{
+    
+    width: 190.6px;
+    font-family: 'Poppins';
+    font-weight:300;
+    font-size: 15px;
+    padding: 5px 5px 0px 0px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(233, 236, 239, 1);
+    background: transparent;
+  } 
+  
+  .form_input ~ .focus-border{
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0px; height: 2px; 
+    background-color: rgba(0, 0, 0, 1);
+    transition: 0.4s;
+  }
+  
+  .form_input:focus ~ .focus-border{
+    width: 195.6px; transition: 0.4s;
+  }
+  
+  ::placeholder{
+    color: rgba(73, 80, 87, 1);
+  }
+  
+  .form_button {
+    margin-top: 20px;
+    align-items: center;
+    appearance: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0px 0px 0px,rgba(45, 35, 66, 0.3) 0 0px 0px;
+    color: #212529;
+    cursor: pointer;
+    height: 30px;
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    font-size: 18px;
+  }
+  
+  .form_button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 2px 2px 2px,rgba(45, 35, 66, 0.3) 0 2px  2px;
+    transition: 0.1s;
+  }
+  
+  /*Yhteystietojen näyttämiseen liittyvän toiminnallisuuden sisältävä container*/
+  .display_container{
+    background-color: white;
+    z-index: 0;
+    width: 90%;
+    margin-top: 5px;
+    padding: 10px;
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+  
+  .display_container:hover {
+    border-radius: 15px;
+    background-color: rgba(248, 249, 250, 1);
+    box-shadow: rgba(45, 35, 66, 0.4) 2px 2px 2px inset,rgba(45, 35, 66, 0.3) 0 2px  2px inset;
+    transition: 0.2s ;
+  
+  }
+  
+  .display_container h2{
+    margin-top: 5px;
+  }
+  
+  .filter_input{
+    width: 190.6px;
+    font-family: 'Poppins';
+    font-weight:300;
+    font-size: 18px;
+    padding: 5px 5px 0px 0px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(233, 236, 239, 1);
+    background: transparent;
+  }
+  
+  .filter_input ~ .focus-border{
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0px; height: 2px; 
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.4s;
+  }
+  .filter_input:focus ~ .focus-border{
+    width: 195.6px; transition: 0.4s;
+  }
+  
+  .contact_row{
+    position: relative;
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+    margin: 0 0 10px 0;
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 15px;
+    animation: show_row;
+    animation-duration: 0.4s;
+  }
+  
+  @keyframes show_row {
+      0% {
+        left: 20%;
+        opacity: 0;
+      }
+      50% {
+        left: -5%;
+        opacity: 0.5;
+      }
+      100% {
+        left: 0;
+        opacity: 1;
+      }
+  }
+  
+  .contact_row p{
+    margin:0;
+    justify-content: center;
+    
+    align-items: center;
+  }
+  
+  .contact_name{
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+  
+  .contact_number{
+    grid-column-start: 2;
+    grid-column-end: 2;
+  }
+  
+  .name_input, .number_input, .contacttitle{
+    position: relative;
+  }
+  
+  .contacttitle h2{
+    color: #212529;
+  }
+  
+  .contact_row button {
+    align-items: center;
+    appearance: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0px 0px 0px,rgba(45, 35, 66, 0.3) 0 0px 0px;
+    color: #212529;
+    cursor: pointer;
+    height: 25px;
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    
+    font-size: 18px;
+    grid-column-start: 3;
+    grid-column-end: 3;
+  
+  }
+  
+  .contact_row button:hover {
+    background-color: #FCFCFD;
+    box-shadow: rgba(45, 35, 66, 0.4) 2px 2px 2px,rgba(45, 35, 66, 0.3) 0 2px  2px;
+    transition: 0.1s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.4s;
+    animation-duration: 0.4s;
+    animation-name: row_button_animation;
+  
+  }
+  
+  @keyframes row_button_animation {
+    from {
+      color: #36395A;
+    }
+    to {
+      color: rgba(255, 0, 0, 0.8);
+    }
+  }
+  
+  .notification {
+    color: rgba(33, 37, 41, 1);
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  
+  .errornotification {
+    color: rgb(255, 0, 0);
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 20px;
+  }
+  
+  .filter_div {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .contact_row button ~ .contact-border{
+    position: absolute;
+    bottom: 45%; left: 0;
+    width: 0px; height: 20%; 
+    background-color: rgba(255, 0, 0, 0.8);
+    transition: 0.4s;
+  }
+  
+  .contact_row button:hover ~ .contact-border{
+    width: 80%;
+    transition: 0.5s;
+  
+  }
+}
